@@ -1,13 +1,36 @@
-This project predicts whether a hotel booking will be canceled based on customer and booking details. It uses various machine learning models to classify bookings and offers a simple web-based interface for real-time predictions.
-
 Project Structure
-app.py: The main Python script that runs the web application. Users can input booking details and get a prediction on whether a booking will be canceled.
-decision_tree_model.pkl: Pre-trained Decision Tree model saved as a pickle file to be used in the app for predictions.
+app_clustering.py: Web application for clustering guests based on booking behaviors using KMeans.
+app_classification.py: Web application for predicting booking cancellations using decision tree classification.
+decision_tree_model.pkl: Pre-trained Decision Tree model used for predicting cancellations.
 Jupyter Notebooks:
-DecisionTreeClassification.ipynb: A notebook implementing Decision Tree classification.
-EnsembleLearningMethods.ipynb: Demonstrates several ensemble learning methods (e.g., Bagging, Random Forest, and Boosting) to improve model accuracy.
-ExtraTreesOverFitting.ipynb: Focuses on overfitting issues and how extra trees can help overcome this.
-IterativeImputerModel.ipynb: Shows how to handle missing data using iterative imputation techniques.
-MeanMedianModel.ipynb: Uses mean and median imputation for missing data and compares model performance.
-SeveralClassificationModels.ipynb: Implements various classification models (Logistic Regression, Decision Trees, Random Forest, etc.) and compares their performance.
-requirements.txt: Contains a list of Python packages required to run the project.
+Clustering.ipynb: Uses KMeans clustering to segment hotel guests based on their booking behavior.
+DecisionTreeClassification.ipynb: Implements Decision Tree classification to predict whether bookings will be canceled.
+EnsembleLearningMethods.ipynb: Demonstrates various ensemble learning techniques for classification.
+ExtraTreesOverFitting.ipynb: Focuses on overfitting issues using Extra Trees.
+IterativeImputerModel.ipynb: Demonstrates how to handle missing data.
+SeveralClassificationModels.ipynb: Implements and compares multiple classification models (Logistic Regression, Decision Trees, etc.).
+requirements.txt: Contains the Python packages required to run the project.
+Techniques Used
+Clustering
+
+Goal: To segment hotel guests based on their booking behaviors and preferences, using unsupervised learning techniques.
+Model: KMeans Clustering, which groups customers into distinct clusters.
+Purpose: Helps in recognizing customer groups and tailoring marketing strategies for each group.
+Classification
+Goal: To predict guest behaviors such as cancellations and repeat bookings using supervised learning techniques.
+Model: Decision Tree with high accuracy.
+Purpose: Predicting guest cancellations helps the hotel adjust its operations, improving occupancy rates and minimizing the financial impact of last-minute cancellations.
+Machine Learning Models
+Clustering:
+KMeans: Used for clustering guests into distinct segments based on their booking behavior.
+Classification:
+Decision Tree: The primary model used for predicting cancellations, with high accuracy.
+Other Models Explored:
+Random Forest
+Extra Trees
+Ensemble Learning Methods 
+Technologies
+Python: Core programming language.
+Scikit-learn: For building machine learning models.
+Pandas, NumPy: For data preprocessing.
+Matplotlib, Seaborn: For data visualization.
