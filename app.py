@@ -1,6 +1,48 @@
 import streamlit as st
 import joblib
 
+st.markdown("""
+            <style>
+            .stTextInput, .stNumberInput, .stRadio, .stCheckbox ,.stSelectbox{
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 5px;
+            background-color: #000000;  /* Black background for inputs */
+            border: 2px solid #ffffff;  /* White border for inputs */
+            color: #ffffff;  /* White font for the inputs */
+        }
+        [data-testid="stAppViewContainer"] {
+        background-image: url('https://img.freepik.com/free-photo/silhouette-palm-tree-with-umbrella_74190-4056.jpg?t=st=1735029245~exp=1735032845~hmac=198f27e2f838ef4262e055e03be06dfed5698ec25fe1d7fc07beb19312a40a11&w=1060');
+        background-size: cover;
+        background-attachment: fixed;
+    }
+        .custom-success-box {
+            padding: 15px;
+            margin: 20px;
+            border: 2px solid #dc3545;  /* Red border */
+            background-color: #dc3545;  /* Light red background */
+            color: #fffff;  /* Dark red text */
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: bold;
+        }
+            .title{
+            font-size: 36px;
+            font-weight: bold;
+            color: #fffff;  /* White text color */
+            background-color: #253f4b;  /* Orange background */
+            padding: 10px 20px;  /* Add padding around the text */
+            border-radius: 10px;  /* Rounded corners for the background */
+            text-align: center;  /* Center align the title */
+            font-family: 'Arial', sans-serif;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); 
+
+            }
+            
+    
+</style>
+            """,unsafe_allow_html=True)
+
 # Load the saved model
 model = joblib.load('decision_tree_model.pkl')
 
@@ -10,7 +52,8 @@ def predict_booking(features):
     return 'Canceled' if prediction == 1 else 'Not Canceled'
 
 # Streamlit app interface
-st.title("Hotel Booking Cancellation Prediction")
+st.markdown('<div class="title">Hotel Booking Cancellation Prediction</div>', unsafe_allow_html=True)
+
 
 # Input fields for user to enter feature values
 no_of_adults = st.number_input("Number of Adults", min_value=0, max_value=10, value=0)
@@ -85,4 +128,8 @@ features = [
 # Display prediction button
 if st.button('Predict Booking Cancellation'):
     result = predict_booking(features)
-    st.success(f"The booking is predicted to be: {result}")
+    st.markdown(f"""
+        <div class="custom-success-box">
+            The booking is predicted to be: {result}
+        </div>
+    """, unsafe_allow_html=True)
